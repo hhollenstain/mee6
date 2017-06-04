@@ -1,0 +1,62 @@
+redis:
+    image: redis
+mongodb:
+    image: mongo:3.0.15
+mee6:
+    image: mee6-bot:hank
+    links:
+        - redis
+        - mongodb
+    environment:
+        - REDIS_URL
+        - MONGO_URL
+        - OAUTH2_CLIENT_ID
+        - OAUTH2_CLIENT_SECRET
+        - OAUTH2_REDIRECT_URI
+        - MEE6_TOKEN
+        - SECRET_KEY
+        - VIRTUAL_HOST
+        - LETSENCRYPT_HOST
+        - LETSENCRYPT_EMAIL
+        - MAL_USERNAME
+        - CARBONITEX_KEY
+        - MAL_PASSWORD
+        - GOOGLE_API_KEY
+        - DD_API_KEY
+        - D_APP_KEY
+        - PAYPAL_MODE
+        - PAYPAL_CLIENT_ID
+        - PAYPAL_CLIENT_SECRET
+        - MEE6_GAME
+        - IMGUR_ID
+mee6-web:
+    image: mee6-web:hank
+    links:
+        - redis
+        - mongodb
+    environment:
+        - REDIS_URL
+        - MONGO_URL
+        - OAUTH2_CLIENT_ID
+        - OAUTH2_CLIENT_SECRET
+        - OAUTH2_REDIRECT_URI
+        - MEE6_TOKEN
+        - SECRET_KEY
+        - VIRTUAL_HOST
+        - LETSENCRYPT_HOST
+        - LETSENCRYPT_EMAIL
+        - MAL_USERNAME
+        - CARBONITEX_KEY
+        - MAL_PASSWORD
+        - GOOGLE_API_KEY
+        - DD_API_KEY
+        - D_APP_KEY
+        - PAYPAL_MODE
+        - PAYPAL_CLIENT_ID
+        - PAYPAL_CLIENT_SECRET
+        - MEE6_GAME
+        - IMGUR_ID
+    ports:
+        - "5000:5000"
+#proxy:
+#    image: jwilder/nginx-proxy
