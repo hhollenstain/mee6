@@ -3,7 +3,7 @@ redis:
 mongodb:
     image: mongo:3.0.15
 mee6:
-    image: mee6-bot:hank
+    image: mee6-bot:local
     links:
         - redis
         - mongodb
@@ -30,7 +30,7 @@ mee6:
         - MEE6_GAME
         - IMGUR_ID
 mee6-web:
-    image: mee6-web:hank
+    image: mee6-web:local
     links:
         - redis
         - mongodb
