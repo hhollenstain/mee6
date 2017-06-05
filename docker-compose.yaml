@@ -1,9 +1,11 @@
 redis:
     image: redis
+    volumes:
+      - /mnt/docker/mee6/redis/data:/data
 mongodb:
     image: mongo:3.0.15
 mee6:
-    image: mee6-bot:local
+    image: cookkkie/mee6:mee6-bot
     links:
         - redis
         - mongodb
@@ -30,7 +32,7 @@ mee6:
         - MEE6_GAME
         - IMGUR_ID
 mee6-web:
-    image: mee6-web:local
+    image: cookkkie/mee6:mee6-web
     links:
         - redis
         - mongodb
