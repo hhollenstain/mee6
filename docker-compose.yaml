@@ -4,6 +4,8 @@ redis:
       - /mnt/docker/mee6/redis/data:/data
 mongodb:
     image: mongo:3.0.15
+    volumes:
+      - /mnt/docker/mee6/mongodb/data:/data
 mee6:
     image: cookkkie/mee6:mee6-bot
     links:
