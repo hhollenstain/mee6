@@ -62,5 +62,12 @@ mee6-web:
         - IMGUR_ID
     ports:
         - "5000:5000"
-#proxy:
-#    image: jwilder/nginx-proxy
+proxy-companion
+proxy:
+    image: jwilder/nginx-proxy
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true
+    volumes:
+      - /mnt/docker/mee6/proxy/certs:/etc/nginx/certs:ro
+      - conf/nginx/vhost.d:/etc/nginx/vhost.d:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
